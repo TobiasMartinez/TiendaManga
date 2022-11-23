@@ -1,0 +1,14 @@
+@import "./components/Navbar/";
+@import "./components/CartWidget/";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
