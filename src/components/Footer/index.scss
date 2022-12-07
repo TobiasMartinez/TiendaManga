@@ -1,0 +1,73 @@
+.footer-sticky {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0c14b;
+  padding: 0.2rem 2rem;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+
+  &__title {
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+      color: white;
+    }
+
+    p {
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+  }
+
+  &__promo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    font-weight: 600;
+
+    background-color: #f0c14b;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: #f0c14b;
+      color: white;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    &--price {
+      font-size: 1.5rem;
+      color: greenyellow;
+    }
+    &--text {
+      font-size: 0.8rem;
+    }
+
+    &--amount {
+      font-weight: 700;
+      font-size: 1rem;
+      color: greenyellow;
+    }
+  }
+
+  &__button {
+    background-color: #f5ce6e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: #f0c14b;
+      color: white;
+    }
+  }
+}

@@ -10,9 +10,12 @@
   flex-wrap: wrap;
   &__title {
     font-size: 1.5rem;
-    color: #61dafb;
     padding: 0 20px;
     margin: 0;
+    a {
+      text-decoration: none;
+      color: #3e8396;
+    }
   }
   &__list {
     display: flex;
@@ -22,7 +25,7 @@
     &-item {
       a {
         text-decoration: none;
-        color: #3fd2fb;
+        color:#3e8396;
         padding: 0.5rem 1rem;
         display: block;
       }
