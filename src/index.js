@@ -3,7 +3,21 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { initializeApp } from "firebase/app";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAtk5ksUZedC-L8svQfsGWW5ckteUCuHhA",
+  authDomain: "coderhouse-proyectomangas.firebaseapp.com",
+  projectId: "coderhouse-proyectomangas",
+  storageBucket: "coderhouse-proyectomangas.appspot.com",
+  messagingSenderId: "384688981171",
+  appId: "1:384688981171:web:7142e5d54833ebc4c89cc6",
+  measurementId: "G-MQ4797ZBFT"
+};
+
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

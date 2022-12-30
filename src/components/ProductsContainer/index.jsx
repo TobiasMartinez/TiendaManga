@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductItem from "../ProductItem";
+import {doc, getDoc,getFirestore} from 'firebase/firestore'
 import data from "../ProductDetail/data.json";
 import Footer from "../Footer";
 
@@ -9,23 +10,15 @@ const ItemListContainer = () => {
 
   const { categoryName } = useParams();
 
-  const getProducts = async () => {
-    // Intente usar un fetch al data.json pero me tira error
-    // const response = await fetch("data.json");
-
-    // console.log(categoryName);
-
-    // const data = await response.json();
-
-    const products = categoryName
-      ? data.filter((product) => product.category === categoryName)
-      : data;
-
-    setProducts(products);
-  };
 
   useEffect(() => {
-    getProducts();
+    const db = getFirestore();
+    const itemCollection = doc(db, "item");
+
+    getDoc(itemCollection).then(result => {
+      if(result.exists()){
+      setProducts(result.data)
+    }})
   }, []);
 
   return (
