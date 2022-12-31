@@ -1,8 +1,26 @@
 import React from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
-const ProductItem = ({ id, name, price, stock, imgPath }) => {
+const ProductItem = ({ id, name, price, stock, imgPath, category }) => {
   const [quantity, setQuantity] = React.useState(1);
+  const [stockAvaible, setStockAvaible] = React.useState(stock);
+
+  const { addToCart } = React.useContext(CartContext);
+
+  const handleAddToCart = () => {
+
+    if( quantity > stockAvaible ) return
+    addToCart({ id, name, price, stock, imgPath, quantity, category });
+    setStockAvaible(stockAvaible - quantity);
+ 
+  };
+
+
+  useEffect(() => {
+  }, [quantity]);
+
 
   return (
     <div className="product-item">
@@ -27,12 +45,13 @@ const ProductItem = ({ id, name, price, stock, imgPath }) => {
         <button
           className="product-item__buttons--add"
           onClick={() => setQuantity(quantity + 1)}
-          disabled={stock <= quantity}
+          disabled={stockAvaible <= quantity}
         >
           +
         </button>
       </div>
-      <button className="product-item__cart">Agregar al carrito</button>
+      {console.log(stockAvaible - quantity, name)}
+      <button className="product-item__cart" onClick={handleAddToCart} disabled={stockAvaible < quantity} >{stockAvaible <= 0 ?  'No hay mas stock': 'Agregar Al carrito'  }</button>
     </div>
   );
 };

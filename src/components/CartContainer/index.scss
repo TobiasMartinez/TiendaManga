@@ -1,0 +1,105 @@
+.container-products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.order-title{
+    margin: 0 auto;
+    text-align: center;
+}
+.orders{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    margin: 2rem;
+    border-radius: 1rem;
+    .order-product{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        height: 10rem;
+        margin: 1rem;
+        padding: 1rem;  
+        justify-content: space-between;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+      
+        &__category{
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: black;
+        }
+
+        &__title{
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            color: black;
+        }
+        &__price{
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem
+            ;
+        }
+        &__quantity{
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        &__img{
+           
+            height: 100%;
+            object-fit: cover;
+        }
+        &__btn{
+
+            background-color: #42915a;
+            border: 1px solid;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: #111;
+            color: white;
+            border-radius: 0.2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            margin: 0.5rem 0;
+            width: 10rem;
+            text-align: center;
+            &:hover{
+                background-color: #ddb347;
+            }
+
+           &--order{ background-color: #f0c14b;
+            border: 1px solid;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: #111;
+            border-radius: 0.2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            margin: 0.5rem 0;
+            width: 10rem;
+            text-align: center;
+            &:hover{
+                background-color: #ddb347;
+            }
+        }
+        }
+
+    }
+}
+
+.buttons{
+    display: flex;
+    gap: 8px;
+    padding-top: 2rem;
+}

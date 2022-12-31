@@ -1,9 +1,20 @@
 .cart {
+  display: flex;
+  a {padding: 0;}
   &__index {
     background-color: #61dafb;
     border-radius: 50%;
     color: white;
     padding: 1px 5px;
     vertical-align: revert;
+    background-color: #61dafb;
+    border-radius: 50%;
+    color: white;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    vertical-align: revert;
+    width: 20px;
+    justify-content: center;
   }
 }

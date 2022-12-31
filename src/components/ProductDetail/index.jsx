@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import data from "./data.json";
+import { doc, getDoc,getFirestore} from 'firebase/firestore'
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
 
+
   const { id } = useParams();
 
-  const getProduct = async () => {
-    const product = data.find((product) => product.id === parseInt(id));
-    setProduct(product);
-  };
+
+  
 
   useEffect(() => {
-    getProduct();
+    const db = getFirestore();
+    const itemRef = doc(db, "item", id);
+
+    console.log(id)
+
+
+    getDoc(itemRef).then(snapshot => {
+      if(snapshot.exists()){
+        setProduct(snapshot.data());
+    }});
+
+    
+
   }, []);
 
   return (
