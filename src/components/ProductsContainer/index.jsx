@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductItem from "../ProductItem";
-import {doc, getDoc,getFirestore} from 'firebase/firestore'
-import data from "../ProductDetail/data.json";
+import {collection, doc, getDocs,getFirestore} from 'firebase/firestore'
 import Footer from "../Footer";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
-
   const { categoryName } = useParams();
 
 
   useEffect(() => {
     const db = getFirestore();
-    const itemCollection = doc(db, "item");
+    const itemCollection = collection(db, "item");
 
-    getDoc(itemCollection).then(result => {
-      if(result.exists()){
-      setProducts(result.data)
-    }})
+
+    getDocs(itemCollection).then(result => {
+      if(result.docs){
+        const products = result.docs.map(item => ({id: item.id, ...item.data()}) )
+        
+        setProducts(categoryName ? products.filter((product) => product.category === categoryName) : products);
+    }});
+
+
   }, []);
 
   return (
@@ -40,6 +43,7 @@ const ItemListContainer = () => {
           </ul>
         </div>
         <div className="products__list">
+          {products.length == 0 && <p>Cargando...</p>}
           {products.map((product) => (
             <ProductItem key={product.id} {...product} />
           ))}
