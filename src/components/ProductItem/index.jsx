@@ -50,7 +50,6 @@ const ProductItem = ({ id, name, price, stock, imgPath, category }) => {
           +
         </button>
       </div>
-      {console.log(stockAvaible - quantity, name)}
       <button className="product-item__cart" onClick={handleAddToCart} disabled={stockAvaible < quantity} >{stockAvaible <= 0 ?  'No hay mas stock': 'Agregar Al carrito'  }</button>
     </div>
   );

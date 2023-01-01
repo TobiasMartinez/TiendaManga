@@ -14,7 +14,8 @@ export function CartReducer(state,action){
         case 'CLEAR_CART':
             return {
                 ...state,
-                cart: []
+                cart: [],
+                count: 0,
             }
         default:
             break;

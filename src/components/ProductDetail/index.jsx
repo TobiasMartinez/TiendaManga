@@ -15,7 +15,6 @@ const ProductDetail = () => {
     const db = getFirestore();
     const itemRef = doc(db, "item", id);
 
-    console.log(id)
 
 
     getDoc(itemRef).then(snapshot => {
